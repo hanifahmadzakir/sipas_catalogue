@@ -1,6 +1,6 @@
 # sipas_userapps
 
-A new Flutter project.
+A new Sipas User apps, based on Flutter framework
 
 ## Getting Started
 
