@@ -57,7 +57,7 @@ class _MainpageState extends State<Mainpage> {
               trailing: new Icon(Icons.map),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Mapspage();
+                  return MapsPage();
                 }));
               },
             ),
@@ -255,17 +255,17 @@ class _MainpageState extends State<Mainpage> {
                                 children: <Widget>[
                                   Material(
                                     borderRadius: BorderRadius.circular(100.0),
-                                    color: Colors.green.withOpacity(0.1),
+                                    color: Colors.brown.withOpacity(0.1),
                                     child: IconButton(
                                       padding: EdgeInsets.all(15.0),
-                                      icon: Icon(Icons.list),
-                                      color: Colors.green,
+                                      icon: Icon(Icons.bookmark),
+                                      color: Colors.brown,
                                       iconSize: 30.0,
                                       onPressed: () {},
                                     ),
                                   ),
                                   SizedBox(height: 8.0),
-                                  Text('Parking List',
+                                  Text('Book-A-Park',
                                       style: TextStyle(
                                           color: Colors.black54,
                                           fontWeight: FontWeight.bold)),
@@ -275,17 +275,17 @@ class _MainpageState extends State<Mainpage> {
                                 children: <Widget>[
                                   Material(
                                     borderRadius: BorderRadius.circular(100.0),
-                                    color: Colors.orange.withOpacity(0.1),
+                                    color: Colors.blueGrey.withOpacity(0.1),
                                     child: IconButton(
                                       padding: EdgeInsets.all(15.0),
-                                      icon: Icon(Icons.warning),
-                                      color: Colors.orangeAccent,
+                                      icon: Icon(Icons.announcement),
+                                      color: Colors.blueGrey,
                                       iconSize: 30.0,
                                       onPressed: () {},
                                     ),
                                   ),
                                   SizedBox(height: 8.0),
-                                  Text('Maps',
+                                  Text('About Us',
                                       style: TextStyle(
                                           color: Colors.black54,
                                           fontWeight: FontWeight.bold)),

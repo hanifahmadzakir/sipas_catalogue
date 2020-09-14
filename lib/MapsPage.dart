@@ -1,21 +1,18 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:sipas_userapps/auth_services.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:sipas_userapps/BugReport.dart';
+import 'package:sipas_userapps/auth_services.dart';
 
-class Mapspage extends StatefulWidget {
+class MapsPage extends StatefulWidget {
   @override
-  _MapspageState createState() => _MapspageState();
+  _MapsPageState createState() => _MapsPageState();
 }
 
-class _MapspageState extends State<Mapspage> {
-  // ignore: unused_field
-  Completer<GoogleMapController> _controller = Completer();
-  CameraPosition firstPosition = CameraPosition(
-    target: LatLng(-6.914744, 107.609810),
-    zoom: 15,
-  );
+class _MapsPageState extends State<MapsPage> {
+  GoogleMapController mapController;
+
+  String searchAddr;
 
   //Marker's Coordinate
   final Set<Marker> _markers = {};
@@ -344,18 +341,9 @@ class _MapspageState extends State<Mapspage> {
 
     super.initState();
   }
-
-  String searchAddres;
-
-  //Apps Scaffold
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        showSearch(context: context, delegate: MapSearch());
-      },child: Icon(Icons.search),),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-      appBar: AppBar(
+    return Scaffold( appBar: AppBar(
         title: new Text('Sipas Maps'),
         backgroundColor: Colors.indigo,
       ),
@@ -415,127 +403,59 @@ class _MapspageState extends State<Mapspage> {
           ],
         ),
       ),
-      body: Stack(
-        children: [
-          GoogleMap(
-            myLocationButtonEnabled: true,
-            mapType: MapType.normal,
-            myLocationEnabled: true,
-            compassEnabled: true,
+        body: Stack(
+      children: <Widget>[
+        GoogleMap(
+            onMapCreated: onMapCreated,
             initialCameraPosition: CameraPosition(
-              target: _currentPosition,
-              zoom: 15,
+              target: LatLng(-6.914744, 107.609810),
+              zoom: 15.0,
             ),
             markers: _markers,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class MapSearch extends SearchDelegate<String> {
-  final parkingLot = [
-    "Terminal Leuwi Panjang",
-    "Parkiran Ahmad Yani A",
-    "Parkiran Ahmad Yani B",
-    "Parkiran Ahmad Yani C",
-    "Jalan ABC A",
-    "Jalan ABC B",
-    "Parkiran A.R. Saleh",
-    "Parkiran Aceh A",
-    "Parkiran Aceh B",
-    "Parkiran Alkateri",
-    "Parkiran Ambon A",
-    "Parkiran Ambon B",
-    "Parkiran Ambon C",
-    "Parkiran Anggrek",
-    "Parkiran Astana Anyar",
-    "Parkiran Astina",
-    "Parkiran Badak Singa",
-    "Parkiran Bali",
-    "Parkiran Dalem kaum A",
-    "Parkiran Dalem Kaum B",
-    "Parkiran Dr. Rajiman",
-    "Parkiran Jend. Sudirman A",
-    "Parkiran Jend. Sudirman B",
-    "Parkiran Jend. Sudirman C",
-    "Parkiran Lodaya",
-    "Parkiran M. Toha A",
-    "Parkiran M. Toha B",
-    "Parkiran Malabar A",
-    "Parkiran Malabar B",
-    "Parkiran Naripan",
-    "Parkiran Panjuan",
-    "Parkiran Pecinan Lama",
-    "Parkiran Pungkur A",
-    "Parkiran Pungkut B",
-    "Parkiran Pungkut C",
-    "Parkiran Purnawarman",
-    "Parkiran Suniaraja",
-    "Masjid Agung Bandung"
-  ];
-
-  final recentParkingLot = [
-    "Parkiran ABC A",
-    "Parkiran ABC B",
-    "Masjid Agung Bandung"
-  ];
-
-  @override
-  List<Widget> buildActions(BuildContext context) {
-    return [
-      IconButton(
-          icon: Icon(Icons.clear),
-          onPressed: () {
-            query = "";
-          })
-    ];
-  }
-
-  @override
-  Widget buildLeading(BuildContext context) {
-    return IconButton(
-        icon: AnimatedIcon(
-          icon: AnimatedIcons.menu_arrow,
-          progress: transitionAnimation,
-        ),
-        onPressed: () {
-          close(context, null);
-        });
-  }
-
-  @override
-  // ignore: missing_return
-  Widget buildResults(BuildContext context) {
-    //menuju ke lokasi
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    final suggestionList = query.isEmpty
-        ? recentParkingLot
-        : parkingLot.where((p) => p.startsWith(query)).toList();
-
-    return ListView.builder(
-        itemBuilder: (context, index) => ListTile(
-              onTap: () {
-                showResults(
-                    context); // Nah disini aku belom bisa buat koding supaya si maps menavigasi kamera ke pin poin yang di tab
-              },
-              leading: Icon(Icons.location_city),
-              title: RichText(
-                text: TextSpan(
-                    text: suggestionList[index].substring(0, query.length),
-                    style: TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.bold),
-                    children: [
-                      TextSpan(
-                          text: suggestionList[index].substring(query.length),
-                          style: TextStyle(color: Colors.grey))
-                    ]),
-              ),
             ),
-        itemCount: suggestionList.length);
+        Positioned(
+          top: 20.0,
+          right: 15.0,
+          left: 15.0,
+          child: Container(
+            height: 50.0,
+            width: double.infinity,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0), color: Colors.white),
+            child: TextField(
+              decoration: InputDecoration(
+                  hintText: 'Enter Address',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(left: 15.0, top: 15.0),
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.search),
+                    onPressed: searchandNavigate(),
+                    iconSize: 30.0,
+                  )),
+              onChanged: (val) {
+                setState(() {
+                  searchAddr = val;
+                });
+              },
+            ),
+          ),
+        )
+      ],
+    ));
+  }
+
+  searchandNavigate() {
+    Geolocator().placemarkFromAddress(searchAddr).then((result) {
+      mapController.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+          target:
+              LatLng(result[0].position.latitude, result[0].position.longitude),
+          zoom: 15.0)));
+    });
+  }
+
+  void onMapCreated(controller) {
+    setState(() {
+      mapController = controller;
+    });
   }
 }
