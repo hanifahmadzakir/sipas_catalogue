@@ -341,107 +341,123 @@ class _MapsPageState extends State<MapsPage> {
 
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold( appBar: AppBar(
-        title: new Text('Sipas Maps'),
-        backgroundColor: Colors.indigo,
-      ),
-      drawer: new Drawer(
-        child: new ListView(
-          children: <Widget>[
-            new UserAccountsDrawerHeader(
-              accountName: Text('Sipasian'),
-              accountEmail: Text('blablabla@mail.com'),
-              currentAccountPicture: new CircleAvatar(
-                backgroundColor: Colors.black26,
-                child: new Text('S'),
-              ),
-              decoration: new BoxDecoration(color: Colors.lightBlue),
-              otherAccountsPictures: <Widget>[
-                new CircleAvatar(
-                  backgroundColor: Colors.black26,
-                  child: new Text('Y'),
-                ),
-                new CircleAvatar(
-                  backgroundColor: Colors.black26,
-                  child: new Text('W'),
-                ),
-              ],
-            ),
-            new ListTile(
-              title: new Text('Home page'),
-              trailing: new Icon(Icons.home),
-            ),
-            new ListTile(
-              title: new Text('Parking List '),
-              trailing: new Icon(Icons.local_parking),
-            ),
-            new ListTile(
-              title: new Text('Parking Maps'),
-              trailing: new Icon(Icons.map),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            new ListTile(
-              title: new Text('Bug Report'),
-              trailing: new Icon(Icons.report),
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return BugReport();
-                }));
-              },
-            ),
-            new ListTile(
-              title: new Text('Logout'),
-              trailing: new Icon(Icons.exit_to_app),
-              onTap: () async {
-                await AuthServices.signOut();
-              },
-            ),
-          ],
+    return Scaffold(
+        floatingActionButton: new FloatingActionButton(
+          onPressed: () {
+            showDialog(
+                context: context,
+                child: new AlertDialog(
+                  title: new Text('Markers Information'),
+                  content: new Text('Yellow Marker = Parking '),
+                ));
+          },
+          child: Icon(Icons.help),
+          backgroundColor: Colors.orange,
         ),
-      ),
-        body: Stack(
-      children: <Widget>[
-        GoogleMap(
-            onMapCreated: onMapCreated,
-            initialCameraPosition: CameraPosition(
-              target: LatLng(-6.914744, 107.609810),
-              zoom: 15.0,
-            ),
-            markers: _markers,
-            ),
-        Positioned(
-          top: 20.0,
-          right: 15.0,
-          left: 15.0,
-          child: Container(
-            height: 50.0,
-            width: double.infinity,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0), color: Colors.white),
-            child: TextField(
-              decoration: InputDecoration(
-                  hintText: 'Enter Address',
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsets.only(left: 15.0, top: 15.0),
-                  suffixIcon: IconButton(
-                    icon: Icon(Icons.search),
-                    onPressed: searchandNavigate(),
-                    iconSize: 30.0,
-                  )),
-              onChanged: (val) {
-                setState(() {
-                  searchAddr = val;
-                });
-              },
-            ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+        appBar: AppBar(
+          title: new Text('Sipas Maps'),
+          backgroundColor: Colors.indigo,
+        ),
+        drawer: new Drawer(
+          child: new ListView(
+            children: <Widget>[
+              new UserAccountsDrawerHeader(
+                accountName: Text('Sipasian'),
+                accountEmail: Text('blablabla@mail.com'),
+                currentAccountPicture: new CircleAvatar(
+                  backgroundColor: Colors.black26,
+                  child: new Text('S'),
+                ),
+                decoration: new BoxDecoration(color: Colors.lightBlue),
+                otherAccountsPictures: <Widget>[
+                  new CircleAvatar(
+                    backgroundColor: Colors.black26,
+                    child: new Text('Y'),
+                  ),
+                  new CircleAvatar(
+                    backgroundColor: Colors.black26,
+                    child: new Text('W'),
+                  ),
+                ],
+              ),
+              new ListTile(
+                title: new Text('Home page'),
+                trailing: new Icon(Icons.home),
+              ),
+              new ListTile(
+                title: new Text('Parking List '),
+                trailing: new Icon(Icons.local_parking),
+              ),
+              new ListTile(
+                title: new Text('Parking Maps'),
+                trailing: new Icon(Icons.map),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              new ListTile(
+                title: new Text('Bug Report'),
+                trailing: new Icon(Icons.report),
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return BugReport();
+                  }));
+                },
+              ),
+              new ListTile(
+                title: new Text('Logout'),
+                trailing: new Icon(Icons.exit_to_app),
+                onTap: () async {
+                  await AuthServices.signOut();
+                },
+              ),
+            ],
           ),
-        )
-      ],
-    ));
+        ),
+        body: Stack(
+          children: <Widget>[
+            GoogleMap(
+              onMapCreated: onMapCreated,
+              initialCameraPosition: CameraPosition(
+                target: LatLng(-6.914744, 107.609810),
+                zoom: 15.0,
+              ),
+              markers: _markers,
+            ),
+            Positioned(
+              top: 20.0,
+              right: 15.0,
+              left: 15.0,
+              child: Container(
+                height: 50.0,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Colors.white),
+                child: TextField(
+                  decoration: InputDecoration(
+                      hintText: 'Enter Address',
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.only(left: 15.0, top: 15.0),
+                      suffixIcon: IconButton(
+                        icon: Icon(Icons.search),
+                        onPressed: searchandNavigate(),
+                        iconSize: 30.0,
+                      )),
+                  onChanged: (val) {
+                    setState(() {
+                      searchAddr = val;
+                    });
+                  },
+                ),
+              ),
+            )
+          ],
+        ));
   }
 
   searchandNavigate() {
