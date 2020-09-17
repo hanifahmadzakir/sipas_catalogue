@@ -173,7 +173,12 @@ class _MainpageState extends State<Mainpage> {
                                       icon: Icon(Icons.map),
                                       color: Colors.purple,
                                       iconSize: 30.0,
-                                      onPressed: () {},
+                                      onPressed: () {
+                   Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                  return MapsPage();
+                }));
+              },
                                     ),
                                   ),
                                   SizedBox(height: 8.0),
@@ -193,7 +198,14 @@ class _MainpageState extends State<Mainpage> {
                                       icon: Icon(Icons.list),
                                       color: Colors.green,
                                       iconSize: 30.0,
-                                      onPressed: () {},
+                                      onPressed: () {
+            showDialog(
+                context: context,
+                child: new AlertDialog(
+                  title: new Text('Parking List'),
+                  content: new Text('This Feature will be add soon :D'),
+                ));
+          },
                                     ),
                                   ),
                                   SizedBox(height: 8.0),
@@ -213,7 +225,11 @@ class _MainpageState extends State<Mainpage> {
                                       icon: Icon(Icons.warning),
                                       color: Colors.orangeAccent,
                                       iconSize: 30.0,
-                                      onPressed: () {},
+                                      onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return BugReport();
+                }));
+              },
                                     ),
                                   ),
                                   SizedBox(height: 8.0),
@@ -261,7 +277,14 @@ class _MainpageState extends State<Mainpage> {
                                       icon: Icon(Icons.bookmark),
                                       color: Colors.brown,
                                       iconSize: 30.0,
-                                      onPressed: () {},
+                                      onPressed: () {
+            showDialog(
+                context: context,
+                child: new AlertDialog(
+                  title: new Text('Book-a-Park'),
+                  content: new Text('This Feature will be add soon :D'),
+                ));
+          },
                                     ),
                                   ),
                                   SizedBox(height: 8.0),

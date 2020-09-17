@@ -351,7 +351,7 @@ class _MapsPageState extends State<MapsPage> {
                 context: context,
                 child: new AlertDialog(
                   title: new Text('Markers Information'),
-                  content: new Text('Yellow Marker = Parking '),
+                  content: new Text('Yellow Marker = Car Parking \nBlue Marker = Car and Motorcycle parking \nRed Marker = Motorcylce Parking'),
                 ));
           },
           child: Icon(Icons.help),
