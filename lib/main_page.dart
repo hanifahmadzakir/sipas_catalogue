@@ -257,7 +257,14 @@ class _MainpageState extends State<Mainpage> {
                                       icon: Icon(Icons.help),
                                       color: Colors.red,
                                       iconSize: 30.0,
-                                      onPressed: () {},
+                                      onPressed: () {
+            showDialog(
+                context: context,
+                child: new AlertDialog(
+                  title: new Text('Need some Help?'),
+                  content: new Text('This apps is providing a parking space nearby you in Bandung city. To see available parking space, press "maps" icon you can use search bar for looking parking space nearby'),
+                ));
+          },
                                     ),
                                   ),
                                   SizedBox(height: 8.0),
@@ -304,7 +311,14 @@ class _MainpageState extends State<Mainpage> {
                                       icon: Icon(Icons.announcement),
                                       color: Colors.blueGrey,
                                       iconSize: 30.0,
-                                      onPressed: () {},
+                                      onPressed: () {
+            showDialog(
+                context: context,
+                child: new AlertDialog(
+                  title: new Text('About Us'),
+                  content: new Text('SIPAS (Smart City Parking System) is an application that providing available parking space nearby you.'),
+                ));
+          },
                                     ),
                                   ),
                                   SizedBox(height: 8.0),
