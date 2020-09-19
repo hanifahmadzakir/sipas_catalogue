@@ -448,9 +448,8 @@ class _MapsPageState extends State<MapsPage> {
                     Prediction p = await PlacesAutocomplete.show(
                         context: context,
                         apiKey: "AIzaSyDbATwyOPmBJuKyVeiaSBd2r5j25vtLsvM",
-                        language: "id", components: [
-                          new Component(Component.country, "id")
-                        ]);
+                        language: "id",
+                        components: [new Component(Component.country, "id")]);
                   },
                   decoration: InputDecoration(
                       hintText: 'Enter Address',
@@ -458,8 +457,8 @@ class _MapsPageState extends State<MapsPage> {
                       contentPadding: EdgeInsets.only(left: 15.0, top: 15.0),
                       suffixIcon: IconButton(
                         icon: Icon(Icons.search),
-                        onPressed: (){},
-                          //searchandNavigate();
+                        onPressed: () {},
+                        //searchandNavigate();
                         //},
                         iconSize: 30.0,
                       )),
