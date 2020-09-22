@@ -7,6 +7,6 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/logo_biru_hdpi"/>
+            android:src="@drawable/logo_bg_biru"/>
     </item> -->
 </layer-list>

@@ -64,7 +64,7 @@ class _MapsPageState extends State<MapsPage> {
     _markers.add(Marker(
       markerId: MarkerId("Kota Bandung"),
       position: _currentPosition,
-      infoWindow: InfoWindow(title: "Kota bandung", snippet: "kota kembang"),
+      infoWindow: InfoWindow(title: "Kota bandung", snippet: "See help on left bottom"),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueOrange),
     ));
     _markers.add(Marker(
@@ -369,7 +369,7 @@ class _MapsPageState extends State<MapsPage> {
                   backgroundColor: Colors.black26,
                   child: new Text('S'),
                 ),
-                decoration: new BoxDecoration(color: Colors.lightBlue),
+                decoration: new BoxDecoration(color: Colors.indigo),
                 otherAccountsPictures: <Widget>[
                   new CircleAvatar(
                     backgroundColor: Colors.black26,

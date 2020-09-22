@@ -10,7 +10,7 @@
         <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="Sipas"
+        android:label="SIPAS"
         android:icon="@mipmap/iconsipas">
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyDbATwyOPmBJuKyVeiaSBd2r5j25vtLsvM"/>
