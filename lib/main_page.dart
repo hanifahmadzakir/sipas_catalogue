@@ -41,13 +41,13 @@ class _MainpageState extends State<Mainpage> {
                 ),
               ],
             ),
-            new ListTile(
-              title: new Text('Home page'),
-              trailing: new Icon(Icons.home),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
+            //new ListTile(
+              //title: new Text('Home page'),
+              //trailing: new Icon(Icons.home),
+              //onTap: () {
+                //Navigator.pop(context);
+              //},
+            //),
             new ListTile(
               title: new Text('Parking List'),
               trailing: new Icon(Icons.local_parking),
