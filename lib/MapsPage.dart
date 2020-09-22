@@ -56,6 +56,7 @@ class _MapsPageState extends State<MapsPage> {
   LatLng _purnawarman = LatLng(-6.904409437, 107.6092315);
   LatLng _suniaraja = LatLng(-6.915693362, 107.6051655);
   LatLng _masjidAgungBdg = LatLng(-6.922449372, 107.6073883);
+  LatLng _balongGede = LatLng(-6.924649, 107.606945);
 
   //Marker's Setting and Information
   @override
@@ -339,6 +340,14 @@ class _MapsPageState extends State<MapsPage> {
       infoWindow: InfoWindow(title: "Parkiran Agung Bandung", snippet: ""),
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
     ));
+    _markers.add(Marker(
+      markerId: MarkerId("Parkiran Balong Gede"),
+      position: _balongGede,
+      infoWindow: InfoWindow(
+          title: "[MITRA]Parkiran Balong Gede(Tarif flat)",
+          snippet: "Kapasitas Mobil: 80(Rp.5000) || Motor : 300(Rp.2000"),
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
+    ));
 
     super.initState();
   }
@@ -372,13 +381,21 @@ class _MapsPageState extends State<MapsPage> {
                   ),
                 ],
               ),
-              new ListTile(
-                title: new Text('Home page'),
-                trailing: new Icon(Icons.home),
-              ),
+              //new ListTile(
+              //title: new Text('Home page'),
+              //trailing: new Icon(Icons.home),
+              //),
               new ListTile(
                 title: new Text('Parking List '),
                 trailing: new Icon(Icons.local_parking),
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      child: new AlertDialog(
+                        title: new Text('Parking List'),
+                        content: new Text('This Feature will be add soon :D'),
+                      ));
+                },
               ),
               new ListTile(
                 title: new Text('Parking Maps'),
@@ -427,13 +444,32 @@ class _MapsPageState extends State<MapsPage> {
                   showDialog(
                       context: context,
                       child: new AlertDialog(
-                        title: new Text('Markers Information'),
+                        title: new Text(
+                            'Markers Information and Search Instruction'),
                         content: new Text(
-                            'Yellow Marker = Car Parking \nBlue Marker = Car and Motorcycle parking \nRed Marker = Motorcylce Parking'),
+                            "Marker Colors meaning\n\nYellow Marker = Car Parking\nBlue Marker = Car and Motorcycle parking \nRed Marker = Motorcylce Parking\n\n\nHow To use Searchbox Accurately?\n\nFirst, Type Where do you want to go, for example 'Balaikota'.\n\nSecond, add word 'bandung' in the end of the text.\n\nso the result is if you want to search 'balaikota' you have to type 'Balaikota Bandung' in searchbox "),
                       ));
                 },
                 child: Icon(Icons.help),
                 backgroundColor: Colors.orange,
+              ),
+            ),
+            Align(
+              alignment: Alignment(-0.5, 0.9),
+              child: FloatingActionButton(
+                heroTag: "btn1",
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      child: new AlertDialog(
+                        title: new Text(
+                            'Permission to Access GPS and Current Location'),
+                        content: new Text(
+                            "Our apps need a permission to use your location, if Maps can't determined your current location, please go to Setting > Application > SIPAS > Permission > Enable Location"),
+                      ));
+                },
+                child: Icon(Icons.warning),
+                backgroundColor: Colors.blue,
               ),
             ),
             Positioned(

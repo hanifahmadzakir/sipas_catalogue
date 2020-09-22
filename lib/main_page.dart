@@ -29,7 +29,7 @@ class _MainpageState extends State<Mainpage> {
                 backgroundColor: Colors.black26,
                 child: new Text('S'),
               ),
-              decoration: new BoxDecoration(color: Colors.blue),
+              decoration: new BoxDecoration(color: primaryColor),
               otherAccountsPictures: <Widget>[
                 new CircleAvatar(
                   backgroundColor: Colors.black26,
@@ -104,12 +104,22 @@ class _MainpageState extends State<Mainpage> {
                       icon: Icon(Icons.notifications_none),
                       color: Colors.white,
                       iconSize: 30.0,
-                      onPressed: () {},
+                      onPressed: () {
+                        showDialog(
+                      context: context,
+                      child: new AlertDialog(
+                        title: new Text(
+                            'Notification'),
+                        content: new Text(
+                            "You have no Notification yet"),
+                      ));
+                      },
                     ),
                   ],
                 ),
               ),
             ),
+            
             Stack(
               children: <Widget>[
                 ClipPath(
@@ -267,8 +277,7 @@ class _MainpageState extends State<Mainpage> {
                                             child: new AlertDialog(
                                               title:
                                                   new Text('Need some Help?'),
-                                              content: new Text(
-                                                  'This apps is providing a parking space nearby you in Bandung city. To see available parking space, press "maps" icon you can use search bar for looking parking space nearby'),
+                                              content: new Text("Don't Hesitate to Reach us at\nEmail: Sipassmart@gmail.com\nWhatsApp: +6285156837135"),
                                             ));
                                       },
                                     ),
@@ -324,7 +333,7 @@ class _MainpageState extends State<Mainpage> {
                                             child: new AlertDialog(
                                               title: new Text('About Us'),
                                               content: new Text(
-                                                  'SIPAS (Smart City Parking System) is an application that providing available parking space nearby you.'),
+                                                  'SIPAS (Smart City Parking System) is an application that providing available parking space nearby your location. Currently is only available in Bandung, Indonesia. To see available parking space, press "maps" icon you can use search bar for looking parking space nearby'),
                                             ));
                                       },
                                     ),
