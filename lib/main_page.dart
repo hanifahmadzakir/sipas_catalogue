@@ -174,11 +174,12 @@ class _MainpageState extends State<Mainpage> {
                                       color: Colors.purple,
                                       iconSize: 30.0,
                                       onPressed: () {
-                   Navigator.push(context, MaterialPageRoute(
-                    builder: (context) {
-                  return MapsPage();
-                }));
-              },
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
+                                                builder: (context) {
+                                          return MapsPage();
+                                        }));
+                                      },
                                     ),
                                   ),
                                   SizedBox(height: 8.0),
@@ -199,13 +200,14 @@ class _MainpageState extends State<Mainpage> {
                                       color: Colors.green,
                                       iconSize: 30.0,
                                       onPressed: () {
-            showDialog(
-                context: context,
-                child: new AlertDialog(
-                  title: new Text('Parking List'),
-                  content: new Text('This Feature will be add soon :D'),
-                ));
-          },
+                                        showDialog(
+                                            context: context,
+                                            child: new AlertDialog(
+                                              title: new Text('Parking List'),
+                                              content: new Text(
+                                                  'This Feature will be add soon :D'),
+                                            ));
+                                      },
                                     ),
                                   ),
                                   SizedBox(height: 8.0),
@@ -226,10 +228,12 @@ class _MainpageState extends State<Mainpage> {
                                       color: Colors.orangeAccent,
                                       iconSize: 30.0,
                                       onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return BugReport();
-                }));
-              },
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
+                                                builder: (context) {
+                                          return BugReport();
+                                        }));
+                                      },
                                     ),
                                   ),
                                   SizedBox(height: 8.0),
@@ -258,13 +262,15 @@ class _MainpageState extends State<Mainpage> {
                                       color: Colors.red,
                                       iconSize: 30.0,
                                       onPressed: () {
-            showDialog(
-                context: context,
-                child: new AlertDialog(
-                  title: new Text('Need some Help?'),
-                  content: new Text('This apps is providing a parking space nearby you in Bandung city. To see available parking space, press "maps" icon you can use search bar for looking parking space nearby'),
-                ));
-          },
+                                        showDialog(
+                                            context: context,
+                                            child: new AlertDialog(
+                                              title:
+                                                  new Text('Need some Help?'),
+                                              content: new Text(
+                                                  'This apps is providing a parking space nearby you in Bandung city. To see available parking space, press "maps" icon you can use search bar for looking parking space nearby'),
+                                            ));
+                                      },
                                     ),
                                   ),
                                   SizedBox(height: 8.0),
@@ -285,13 +291,14 @@ class _MainpageState extends State<Mainpage> {
                                       color: Colors.brown,
                                       iconSize: 30.0,
                                       onPressed: () {
-            showDialog(
-                context: context,
-                child: new AlertDialog(
-                  title: new Text('Book-a-Park'),
-                  content: new Text('This Feature will be add soon :D'),
-                ));
-          },
+                                        showDialog(
+                                            context: context,
+                                            child: new AlertDialog(
+                                              title: new Text('Book-a-Park'),
+                                              content: new Text(
+                                                  'This Feature will be add soon :D'),
+                                            ));
+                                      },
                                     ),
                                   ),
                                   SizedBox(height: 8.0),
@@ -312,13 +319,14 @@ class _MainpageState extends State<Mainpage> {
                                       color: Colors.blueGrey,
                                       iconSize: 30.0,
                                       onPressed: () {
-            showDialog(
-                context: context,
-                child: new AlertDialog(
-                  title: new Text('About Us'),
-                  content: new Text('SIPAS (Smart City Parking System) is an application that providing available parking space nearby you.'),
-                ));
-          },
+                                        showDialog(
+                                            context: context,
+                                            child: new AlertDialog(
+                                              title: new Text('About Us'),
+                                              content: new Text(
+                                                  'SIPAS (Smart City Parking System) is an application that providing available parking space nearby you.'),
+                                            ));
+                                      },
                                     ),
                                   ),
                                   SizedBox(height: 8.0),

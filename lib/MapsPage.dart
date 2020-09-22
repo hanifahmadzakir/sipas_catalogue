@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:google_maps_webservice/places.dart';
 import 'package:sipas_userapps/BugReport.dart';
 import 'package:sipas_userapps/auth_services.dart';
 // ignore: unused_import
 import 'package:async/async.dart';
-import 'package:flutter_google_places/flutter_google_places.dart';
 
 class MapsPage extends StatefulWidget {
   @override
@@ -15,7 +13,6 @@ class MapsPage extends StatefulWidget {
 
 class _MapsPageState extends State<MapsPage> {
   GoogleMapController mapController;
-
   String searchAddr;
 
   //Marker's Coordinate
@@ -349,20 +346,6 @@ class _MapsPageState extends State<MapsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButton: new FloatingActionButton(
-          onPressed: () {
-            showDialog(
-                context: context,
-                child: new AlertDialog(
-                  title: new Text('Markers Information'),
-                  content: new Text(
-                      'Yellow Marker = Car Parking \nBlue Marker = Car and Motorcycle parking \nRed Marker = Motorcylce Parking'),
-                ));
-          },
-          child: Icon(Icons.help),
-          backgroundColor: Colors.orange,
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
         appBar: AppBar(
           title: new Text('Sipas Maps'),
           backgroundColor: Colors.indigo,
@@ -431,11 +414,31 @@ class _MapsPageState extends State<MapsPage> {
                 target: LatLng(-6.914744, 107.609810),
                 zoom: 15.0,
               ),
+              zoomGesturesEnabled: true,
+              myLocationEnabled: true,
+              myLocationButtonEnabled: true,
               markers: _markers,
             ),
+            Align(
+              alignment: Alignment(-0.9, 0.9),
+              child: FloatingActionButton(
+                heroTag: "btn2",
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      child: new AlertDialog(
+                        title: new Text('Markers Information'),
+                        content: new Text(
+                            'Yellow Marker = Car Parking \nBlue Marker = Car and Motorcycle parking \nRed Marker = Motorcylce Parking'),
+                      ));
+                },
+                child: Icon(Icons.help),
+                backgroundColor: Colors.orange,
+              ),
+            ),
             Positioned(
-              top: 20.0,
-              right: 15.0,
+              top: 10.0,
+              right: 70.0,
               left: 15.0,
               child: Container(
                 height: 50.0,
@@ -444,22 +447,15 @@ class _MapsPageState extends State<MapsPage> {
                     borderRadius: BorderRadius.circular(10.0),
                     color: Colors.white),
                 child: TextField(
-                  onTap: () async {
-                    Prediction p = await PlacesAutocomplete.show(
-                        context: context,
-                        apiKey: "AIzaSyDbATwyOPmBJuKyVeiaSBd2r5j25vtLsvM",
-                        language: "id",
-                        components: [new Component(Component.country, "id")]);
-                  },
                   decoration: InputDecoration(
                       hintText: 'Enter Address',
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.only(left: 15.0, top: 15.0),
                       suffixIcon: IconButton(
                         icon: Icon(Icons.search),
-                        onPressed: () {},
-                        //searchandNavigate();
-                        //},
+                        onPressed: () {
+                          searchandNavigate();
+                        },
                         iconSize: 30.0,
                       )),
                   onChanged: (val) {
@@ -479,7 +475,7 @@ class _MapsPageState extends State<MapsPage> {
       mapController.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
           target:
               LatLng(result[0].position.latitude, result[0].position.longitude),
-          zoom: 15.0)));
+          zoom: 18.0)));
     });
   }
 
