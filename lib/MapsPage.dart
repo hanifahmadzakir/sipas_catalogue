@@ -448,7 +448,7 @@ class _MapsPageState extends State<MapsPage> {
                     color: Colors.white),
                 child: TextField(
                   decoration: InputDecoration(
-                      hintText: 'Enter Address',
+                      hintText: 'Where do you want to go?',
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.only(left: 15.0, top: 15.0),
                       suffixIcon: IconButton(
