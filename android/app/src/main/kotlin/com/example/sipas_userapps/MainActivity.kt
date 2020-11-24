@@ -1,4 +1,4 @@
-package com.example.sipas_userapps
+package com.sipasdev.sipas_userapps
 
 import io.flutter.embedding.android.FlutterActivity
 

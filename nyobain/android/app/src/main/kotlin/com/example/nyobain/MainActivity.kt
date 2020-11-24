@@ -1,4 +1,4 @@
-package com.example.nyobain
+package com.sipasdev.nyobain
 
 import io.flutter.embedding.android.FlutterActivity
 

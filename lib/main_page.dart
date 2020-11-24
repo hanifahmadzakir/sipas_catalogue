@@ -42,11 +42,11 @@ class _MainpageState extends State<Mainpage> {
               ],
             ),
             //new ListTile(
-              //title: new Text('Home page'),
-              //trailing: new Icon(Icons.home),
-              //onTap: () {
-                //Navigator.pop(context);
-              //},
+            //title: new Text('Home page'),
+            //trailing: new Icon(Icons.home),
+            //onTap: () {
+            //Navigator.pop(context);
+            //},
             //),
             new ListTile(
               title: new Text('Parking List'),
@@ -106,20 +106,17 @@ class _MainpageState extends State<Mainpage> {
                       iconSize: 30.0,
                       onPressed: () {
                         showDialog(
-                      context: context,
-                      child: new AlertDialog(
-                        title: new Text(
-                            'Notification'),
-                        content: new Text(
-                            "You have no Notification yet"),
-                      ));
+                            context: context,
+                            child: new AlertDialog(
+                              title: new Text('Notification'),
+                              content: new Text("You have no Notification yet"),
+                            ));
                       },
                     ),
                   ],
                 ),
               ),
             ),
-            
             Stack(
               children: <Widget>[
                 ClipPath(
@@ -277,7 +274,8 @@ class _MainpageState extends State<Mainpage> {
                                             child: new AlertDialog(
                                               title:
                                                   new Text('Need some Help?'),
-                                              content: new Text("Don't Hesitate to Reach us at\nEmail: Sipassmart@gmail.com\nWhatsApp: +6285156837135"),
+                                              content: new Text(
+                                                  "Don't Hesitate to Reach us at\nEmail: Sipassmart@gmail.com\nWhatsApp: +6285156837135"),
                                             ));
                                       },
                                     ),
