@@ -1,34 +1,37 @@
 {
   "project_info": {
-    "project_number": "551459810974",
-    "firebase_url": "https://sipasflutterdatabase.firebaseio.com",
-    "project_id": "sipasflutterdatabase",
-    "storage_bucket": "sipasflutterdatabase.appspot.com"
+    "project_number": "830512263105",
+    "firebase_url": "https://sipasmap.firebaseio.com",
+    "project_id": "sipasmap",
+    "storage_bucket": "sipasmap.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:551459810974:android:3913938f45a8e4d7dd958f",
+        "mobilesdk_app_id": "1:830512263105:android:80a26272fac2278a630940",
         "android_client_info": {
-          "package_name": "com.sipasdev.sipas_catalogue"
+          "package_name": "com.example.sipasmapcatalogue"
         }
       },
       "oauth_client": [
         {
-          "client_id": "551459810974-u64qtagdfp5ru0085hgupcov2n23jr0s.apps.googleusercontent.com",
+          "client_id": "830512263105-dpe843uj8199l8greib2llu4j3o73gob.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD2YQeHIv5BsNVGjMF2iWHY_U2-UhBOghc"
+          "current_key": "AIzaSyDUfR9vQPuMlJqzXbPp0mxs__7xi3_9-vw"
+        },
+        {
+          "current_key": "AIzaSyDbATwyOPmBJuKyVeiaSBd2r5j25vtLsvM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "551459810974-u64qtagdfp5ru0085hgupcov2n23jr0s.apps.googleusercontent.com",
+              "client_id": "830512263105-dpe843uj8199l8greib2llu4j3o73gob.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -37,14 +40,46 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:551459810974:android:dfce85ab4f20c0f5dd958f",
+        "mobilesdk_app_id": "1:830512263105:android:45df8106c0713670630940",
+        "android_client_info": {
+          "package_name": "com.sipas.aplikasi_mitra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830512263105-dpe843uj8199l8greib2llu4j3o73gob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUfR9vQPuMlJqzXbPp0mxs__7xi3_9-vw"
+        },
+        {
+          "current_key": "AIzaSyDbATwyOPmBJuKyVeiaSBd2r5j25vtLsvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "830512263105-dpe843uj8199l8greib2llu4j3o73gob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830512263105:android:00895e22a6506c54630940",
         "android_client_info": {
           "package_name": "com.sipasdev.sipas_userapps"
         }
       },
       "oauth_client": [
         {
-          "client_id": "551459810974-j7fmq194purpufttscljt3pnt2ge8sbc.apps.googleusercontent.com",
+          "client_id": "830512263105-kpuoirqah1n99pp66e8cnvjqv59qeg55.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.sipasdev.sipas_userapps",
@@ -52,20 +87,23 @@
           }
         },
         {
-          "client_id": "551459810974-u64qtagdfp5ru0085hgupcov2n23jr0s.apps.googleusercontent.com",
+          "client_id": "830512263105-dpe843uj8199l8greib2llu4j3o73gob.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD2YQeHIv5BsNVGjMF2iWHY_U2-UhBOghc"
+          "current_key": "AIzaSyDUfR9vQPuMlJqzXbPp0mxs__7xi3_9-vw"
+        },
+        {
+          "current_key": "AIzaSyDbATwyOPmBJuKyVeiaSBd2r5j25vtLsvM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "551459810974-u64qtagdfp5ru0085hgupcov2n23jr0s.apps.googleusercontent.com",
+              "client_id": "830512263105-dpe843uj8199l8greib2llu4j3o73gob.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
